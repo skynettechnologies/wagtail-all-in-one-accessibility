@@ -1,0 +1,1 @@
+# wagtail-all-in-one-accessibility
