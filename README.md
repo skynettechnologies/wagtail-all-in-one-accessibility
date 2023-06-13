@@ -22,10 +22,6 @@ It uses the accessibility interface which handles UI and design related adjustme
 
 ## Usage
 
-
-## Steps for Django and Django CMS
----
-
 ### Settings.INSTALLED_APPS
 Add `wagtail_all_in_one_accessibility` and `wagtail.contrib.modeladmin` in to your setting.INSTALLED_APPS:
 
