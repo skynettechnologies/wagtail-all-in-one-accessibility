@@ -1,0 +1,3 @@
+# Include all templates and static files
+recursive-include wagtail_all_in_one_accessibility/templates *
+recursive-include wagtail_all_in_one_accessibility/static *

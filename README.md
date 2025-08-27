@@ -138,7 +138,9 @@ English (USA), English (UK), English (Australian), English (Canadian), English (
 
 ## Installation
 -   Run `pip install wagtail-all-in-one-accessibility`
--   Add `wagtail.contrib.modeladmin` in `settings.INSTALLED_APPS`
+-   Run `pip install wagtail-modeladmin`
+-   Add `wagtail_modeladmin` in `settings.INSTALLED_APPS`
+-   Add `wagtail.contrib.settings` in `settings.INSTALLED_APPS`
 -   Add `wagtail_all_in_one_accessibility` in `settings.INSTALLED_APPS`
 -   Add `wagtail_all_in_one_accessibility.context_processors.admin_AIOA` in `settings.TEMPLATES context_processors`
 -   Add `<script id="aioa-adawidget" src="{{ AIOA_URL }}"></script>`put this line in your base.html footer
@@ -152,7 +154,7 @@ English (USA), English (UK), English (Australian), English (Canadian), English (
 ---
 
 ### Settings.INSTALLED_APPS
-Just add `wagtail_all_in_one_accessibility` and `wagtail.contrib.modeladmin,` in to your setting.INSTALLED_APPS:
+Just add `wagtail_all_in_one_accessibility`, `wagtail_modeladmin` and `wagtail.contrib.settings` in to your setting.INSTALLED_APPS:
 
 ```python
 INSTALLED_APPS = [
@@ -162,7 +164,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'wagtail.contrib.modeladmin',
+    'wagtail_modeladmin',
+    'wagtail.contrib.settings',
     'wagtail_all_in_one_accessibility',
 ]
 ```

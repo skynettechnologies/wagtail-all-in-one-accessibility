@@ -1,0 +1,161 @@
+{% load static %}
+
+<style>
+    .icon-size-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 10px;
+    }
+
+    .icon-size-option {
+        width: 100px;
+        height: 100px;
+        background-color: #2E1F5E;
+        border-radius: 10px;
+        position: relative;
+        text-align: center;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        border: 3px solid transparent;  /* Default border */
+        box-sizing: border-box;
+    }
+
+    .icon-size-option input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .icon-size-option img {
+        display: block;
+        margin: 0 auto;
+        background-color: #2E1F5E;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+
+    /* ✅ Move green border to the outer box */
+    .icon-size-option input:checked ~ img {
+        outline: none;
+    }
+
+    .icon-size-option input:checked ~ .checkmark {
+        display: block;
+    }
+
+    .icon-size-option input:checked ~ * {
+        /* Green border for selected */
+        border-color: #00cc66 !important;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: #00cc66;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 14px;
+        display: none;
+        z-index: 1;
+    }
+
+    /* ✅ Green border on selected box */
+    .icon-size-option input:checked ~ .checkmark + img {
+        outline: none !important;
+    }
+
+    .icon-size-option input:checked ~ .checkmark ~ img {
+        outline: none !important;
+    }
+
+    .icon-size-option input:checked ~ * {
+        outline: none !important;
+    }
+
+    /* This is key for green border */
+    .icon-size-option input:checked ~ .checkmark,
+    .icon-size-option input:checked ~ .icon-size-img {
+        outline: none;
+    }
+
+    .icon-size-option input:checked ~ .checkmark,
+    .icon-size-option input:checked ~ img,
+    .icon-size-option input:checked ~ * {
+        outline: none;
+    }
+
+    /* ✅ Proper way to show border */
+    .icon-size-option input:checked ~ .border-marker {
+        border: 3px solid #00cc66;
+    }
+</style>
+
+
+<div class="icon-size-options">
+    {% for group, options, index in widget.optgroups %}
+        {% for option in options %}
+            {% with size=option.value %}
+                <label class="icon-size-option">
+                    <input type="radio" name="{{ widget.name }}" value="{{ option.value }}"
+                        {% if option.selected %}checked{% endif %}>
+                    <span class="checkmark">✓</span>
+                    <img
+                        class="icon-size-img"
+                        data-size="{{ option.value }}"
+                        src=""
+                        alt="{{ option.value }}"
+                    />
+                </label>
+
+            {% endwith %}
+        {% endfor %}
+    {% endfor %}
+</div>
+
+<script>
+    const SIZE_MAP = {
+        'aioa-big-icon': 75,
+        'aioa-medium-icon': 65,
+        'aioa-default-icon': 55,
+        'aioa-small-icon': 45,
+        'aioa-extra-small-icon': 35,
+    };
+
+    function updateIconSizeImages(iconTypeBase) {
+        const iconNumberMatch = iconTypeBase.match(/aioa-icon-type-(\d+)/);
+        if (!iconNumberMatch) return;
+
+        const iconNumber = iconNumberMatch[1];
+        const iconUrl = `https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-${iconNumber}.svg`;
+
+        document.querySelectorAll('.icon-size-img').forEach(img => {
+            const sizeKey = img.dataset.size;
+            const height = SIZE_MAP[sizeKey] || 55;
+
+            img.src = iconUrl;
+            img.style.height = `${height}px`;
+            img.style.width = `${height}px`; // Optional: keep it square
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const iconTypeInputs = document.querySelectorAll('input[name="aioa_icon_type"]');
+        const selectedIconType = document.querySelector('input[name="aioa_icon_type"]:checked');
+
+        if (selectedIconType) {
+            updateIconSizeImages(selectedIconType.value);
+        }
+
+        iconTypeInputs.forEach(input => {
+            input.addEventListener('change', () => {
+                updateIconSizeImages(input.value);
+            });
+        });
+    });
+</script>

@@ -14,7 +14,7 @@ urlpatterns = [
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
-    path("", wagtail_all_in_one_accessibility_views.home, name="home"),
+    
 ]
 
 
