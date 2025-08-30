@@ -163,13 +163,6 @@ class AllInOneAccessibility(BaseGenericSetting):
 
     ]
 
-    
-    # def save(self, *args, **kwargs):
-    #     domain_url = kwargs.pop('domain_url', None)
-    #     super().save(*args, **kwargs)
-    #     self.send_to_external_api(domain_url)
-
-
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         if self.domain_url:

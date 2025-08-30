@@ -1,3 +1,17 @@
+## Requirements
+
+This package supports the following combinations of Python, Django, and Wagtail versions:
+
+### Python 3.13:
+- **Django 5.2**: Compatible with **Wagtail 7.1, 7.0**
+- **Django 5.1**: Compatible with **Wagtail 6.4, 6.3, 6.2, 6.1, 6.0**
+- **Django 4.2**: Compatible with **Wagtail 5.2**
+
+### Python 3.11:
+- **Django 5.2**: Compatible with **Wagtail 7.1, 7.0**
+- **Django 5.1**: Compatible with **Wagtail 6.4, 6.3, 6.2, 6.1, 6.0**
+- **Django 4.2.**: Compatible with **Wagtail 5.2**
+
 # All in One Accessibility®
 
 ## Enhance Your Website's Accessibility with All in One Accessibility®

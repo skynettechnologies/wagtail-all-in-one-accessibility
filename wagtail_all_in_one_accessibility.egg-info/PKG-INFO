@@ -6,25 +6,31 @@ Home-page: https://www.skynettechnologies.com
 Author: Skynet Technologies USA LLC
 Author-email: developer3@skynettechnologies.com
 Classifier: Environment :: Web Environment
-Classifier: Framework :: wagtail
-Classifier: Framework :: wagtail :: >=5.2,<=7.1
 Classifier: Framework :: Django
-Classifier: Framework :: Django :: >=4.2,<5.3
 Classifier: Intended Audience :: Developers
 Classifier: License :: OSI Approved :: BSD License
 Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python
-Classifier: Programming Language :: Python :: 3
-Classifier: Programming Language :: Python :: 3 :: Only
-Classifier: Programming Language :: Python :: 3.9
-Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
-Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
 Classifier: Topic :: Internet :: WWW/HTTP
 Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
-Requires-Python: >=3.9
 Requires-Dist: Django<5.3,>=4.2
 Requires-Dist: wagtail<=7.1,>=5.2
+
+## Requirements
+
+This package supports the following combinations of Python, Django, and Wagtail versions:
+
+### Python 3.13:
+- **Django 5.2**: Compatible with **Wagtail 7.1, 7.0**
+- **Django 5.1**: Compatible with **Wagtail 6.4, 6.3, 6.2, 6.1, 6.0**
+- **Django 4.2**: Compatible with **Wagtail 5.2**
+
+### Python 3.11:
+- **Django 5.2**: Compatible with **Wagtail 7.1, 7.0**
+- **Django 5.1**: Compatible with **Wagtail 6.4, 6.3, 6.2, 6.1, 6.0**
+- **Django 4.2.**: Compatible with **Wagtail 5.2**
 
 # All in One Accessibility®
 
