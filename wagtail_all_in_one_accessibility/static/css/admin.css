@@ -2,3 +2,41 @@
 .hidden {
     display: none !important;
 }
+
+
+
+
+
+/* Custom admin sidebar icon */
+.icon-accessibility-custom::before {
+    content: "";
+    display: inline-block;
+    width: 16px;   /* adjust size */
+    height: 16px;
+    background-image: url("/static/wagtailadmin/icons/accessibility.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    background-color: beige;
+}
+
+
+
+/* Target the header icon with placeholder name */
+.model-admin-header .icon.icon-placeholder {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-image: url("/static/yourapp/icons/myicon.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+/* Hide the default <use> sprite inside the svg */
+.model-admin-header .icon.icon-placeholder use {
+    display: none;
+}
+
+
+

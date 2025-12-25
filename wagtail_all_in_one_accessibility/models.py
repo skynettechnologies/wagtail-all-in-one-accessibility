@@ -14,9 +14,9 @@ AIOA_SELECT_CHOICES = [
     ('top_center', 'Top Center'),
     ('top_right', 'Top Right'),
     ('middle_left', 'Middle Left'),
-    ('middle_center', 'Middle Center'),
     ('middle_right', 'Middle Right'),
     ('bottom_left', 'Bottom Left'),
+    ('bottom_center', 'Bottom Center'),
     ('bottom_right', 'Bottom Right'),
 ]
 
@@ -30,7 +30,7 @@ to_the_right_choice = [('to_the_left','To the left'),
       ('to_the_right','To the right'),
     ]
 
-to_the_bottom_choice = [('to_the_bottom','Top the bottom'),
+to_the_bottom_choice = [('to_the_bottom','To the bottom'),
       ('to_the_top','To the top'),
     ]
 
@@ -163,11 +163,14 @@ class AllInOneAccessibility(BaseGenericSetting):
 
     ]
 
+    # Save hook to trigger external API on save
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
+
         if self.domain_url:
             self.send_to_external_api(self.domain_url)
 
+    # Placeholder function for sending data to external API
     def send_to_external_api(self, domain_url=None):
 
         if not domain_url:
@@ -184,18 +187,18 @@ class AllInOneAccessibility(BaseGenericSetting):
 
         if not self.enable_widget_icon_position:
             data.update({
-                "widget_position_top": 0,
-                "widget_position_right": 0,
-                "widget_position_bottom": 0,
-                "widget_position_left": 0,
+                "widget_position_top": None,
+                "widget_position_right": None,
+                "widget_position_bottom": None,
+                "widget_position_left": None,
                 "widget_position": self.aioa_place,
             })
         else:
             widget_position = {
-                "widget_position_top": 0,
-                "widget_position_right": 0,
-                "widget_position_bottom": 0,
-                "widget_position_left": 0,
+                "widget_position_top": None,
+                "widget_position_right": None,
+                "widget_position_bottom": None,
+                "widget_position_left": None,
             }
 
             if self.to_the_right == "to_the_left":
@@ -227,6 +230,8 @@ class AllInOneAccessibility(BaseGenericSetting):
             "widget_size": widget_size_value,
             "widget_icon_type": self.aioa_icon_type,
         })
+        
+        # Send API request to external service (with fallback error handling)
         try:
             response = requests.post('https://ada.skynettechnologies.us/api/widget-setting-update-platform', json=data)
             response.raise_for_status()
@@ -235,11 +240,11 @@ class AllInOneAccessibility(BaseGenericSetting):
 
         
     def __str__(self):
-        return "All In One Accessibility"
+        return "All in One Accessibility"
     
     class Meta:
-        verbose_name = "All In One Accessibility"
-        verbose_name_plural = "All In One Accessibility"
+        verbose_name = "All in One Accessibility"
+        verbose_name_plural = "All in One Accessibility"
     
 
         

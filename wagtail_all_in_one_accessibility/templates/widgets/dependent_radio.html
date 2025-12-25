@@ -119,6 +119,7 @@
 </div>
 
 <script>
+    // Mapping of icon size classes to pixel values
     const SIZE_MAP = {
         'aioa-big-icon': 75,
         'aioa-medium-icon': 65,
@@ -127,6 +128,7 @@
         'aioa-extra-small-icon': 35,
     };
 
+    // Updates all icon preview images with selected icon and size
     function updateIconSizeImages(iconTypeBase) {
         const iconNumberMatch = iconTypeBase.match(/aioa-icon-type-(\d+)/);
         if (!iconNumberMatch) return;
@@ -144,6 +146,7 @@
         });
     }
 
+    // Set up icon change listeners and initialize preview on load
     document.addEventListener('DOMContentLoaded', () => {
         const iconTypeInputs = document.querySelectorAll('input[name="aioa_icon_type"]');
         const selectedIconType = document.querySelector('input[name="aioa_icon_type"]:checked');

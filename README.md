@@ -1,17 +1,3 @@
-## Requirements
-
-This package supports the following combinations of Python, Django, and Wagtail versions:
-
-### Python 3.13:
-- **Django 5.2**: Compatible with **Wagtail 7.1, 7.0**
-- **Django 5.1**: Compatible with **Wagtail 6.4, 6.3, 6.2, 6.1, 6.0**
-- **Django 4.2**: Compatible with **Wagtail 5.2**
-
-### Python 3.11:
-- **Django 5.2**: Compatible with **Wagtail 7.1, 7.0**
-- **Django 5.1**: Compatible with **Wagtail 6.4, 6.3, 6.2, 6.1, 6.0**
-- **Django 4.2.**: Compatible with **Wagtail 5.2**
-
 # All in One Accessibility®
 
 ## Enhance Your Website's Accessibility with All in One Accessibility®
@@ -144,6 +130,19 @@ For more details, visit **[All in One Accessibility®](https://www.skynettechnol
 
 English (USA), English (UK), English (Australian), English (Canadian), English (South Africa), Español, Español (Mexicano), Deutsch, عربى, Português, Português (Brazil), 日本語, Français, Italiano, Polski, Pусский, 中文, 中文 (Traditional), עִברִית, Magyar, Slovenčina, Suomenkieli, Türkçe, Ελληνικά, Latinus, Български, Català, Čeština, Dansk, Nederlands, हिंदी, Bahasa Indonesia, 한국인, Lietuvių, Bahasa Melayu, Norsk, Română, Slovenščina, Svenska, แบบไทย, Українська, Việt Nam, বাঙালি, සිංහල, አማርኛ, Hmoob, မြန်မာ, Eesti keel, latviešu, Cрпски, Hrvatski, ქართული, ʻŌlelo Hawaiʻi, Cymraeg, Cebuano, Samoa, Kreyòl ayisyen, Føroyskt, Crnogorski, Azerbaijani, Euskara, Tagalog, Galego, Norsk Bokmål, فارسی, ਪੰਜਾਬੀ, shqiptare, Hայերեն, অসমীয়া, Aymara, Bamanankan, беларускі, bosanski, Corsu, ދިވެހި, Esperanto, Eʋegbe, Frisian, guarani, ગુજરાતી, Hausa, íslenskur, Igbo, Gaeilge, basa jawa, ಕನ್ನಡ, қазақ, ខ្មែរ, Kinyarwanda, Kurdî, Кыргызча, ພາສາລາວ, Lingala, Luganda, lëtzebuergesch, македонски, Malagasy, മലയാളം, Malti, Maori, मराठी, Монгол, नेपाली, Sea, ଓଡିଆ, Afaan Oromoo, پښتو, Runasimi, संस्कृत, Gàidhlig na h-Alba, Sesotho, Shona, سنڌي, Soomaali, basa Sunda, kiswahili, тоҷикӣ, தமிழ், Татар, తెలుగు, ትግሪኛ, Tsonga, Türkmenler, Ride, اردو, ئۇيغۇر, o'zbek, isiXhosa, יידיש, Yoruba, Zulu, भोजपुरी, डोगरी, कोंकणी, Kurdî, Krio, मैथिली, Meiteilon, Mizo tawng, Sepedi, Ilocano, دری.
 
+## Requirements
+
+This package supports the following combinations of Python, Django, and Wagtail versions:
+
+### Python 3.13:
+- **Django 5.2**: Compatible with **Wagtail 7.1, 7.0**
+- **Django 5.1**: Compatible with **Wagtail 6.4, 6.3, 6.2, 6.1, 6.0**
+- **Django 4.2**: Compatible with **Wagtail 5.2**
+
+### Python 3.11:
+- **Django 5.2**: Compatible with **Wagtail 7.1, 7.0**
+- **Django 5.1**: Compatible with **Wagtail 6.4, 6.3, 6.2, 6.1, 6.0**
+- **Django 4.2.**: Compatible with **Wagtail 5.2**
 
 ## Installation
 [`all-in-one-accessibility-introduction`](https://www.youtube.com/watch?v=PPQMWSzroAA) - introduction of All in One Accessibility widget .

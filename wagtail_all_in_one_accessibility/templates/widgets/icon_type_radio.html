@@ -1,6 +1,7 @@
 {% load static %}
 
 <style>
+    /* Container for all icon options */
     .icon-type-options {
         display: flex;
         flex-wrap: wrap;
@@ -8,6 +9,7 @@
         margin-top: 10px;
     }
 
+    /* Individual option styling */
     .icon-type-option {
         width: 100px;
         height: 100px;
@@ -24,12 +26,14 @@
         box-sizing: border-box;
     }
 
+    /* Hide radio inputs */
     .icon-type-option input[type="radio"] {
         position: absolute;
         opacity: 0;
         pointer-events: none;
     }
 
+    /* Image preview inside option */
     .icon-type-option img {
         width: 55px;
         height: 55px;
@@ -38,10 +42,12 @@
         border-radius: 8px;
     }
 
+    /* Show green checkmark if selected */
     .icon-type-option input:checked ~ .checkmark {
         display: block;
     }
 
+    /* Checkmark positioning */
     .checkmark {
         position: absolute;
         top: 5px;
@@ -55,6 +61,7 @@
         z-index: 1;
     }
 
+    /* Highlight selected icon */
     .icon-type-option input:checked ~ * {
         border-color: #00cc66 !important;
     }
