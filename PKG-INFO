@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: wagtail-all-in-one-accessibility
-Version: 2.1.0
+Version: 2.1.1
 Summary: Website accessibility widget for improving WCAG 2.0, 2.1, 2.2 and ADA compliance!
 Home-page: https://www.skynettechnologies.com
 Author: Skynet Technologies USA LLC
@@ -11,318 +11,326 @@ Classifier: Intended Audience :: Developers
 Classifier: License :: OSI Approved :: BSD License
 Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
 Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
 Classifier: Topic :: Internet :: WWW/HTTP
 Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
 Description-Content-Type: text/markdown
-Requires-Dist: Django<5.3,>=4.2
-Requires-Dist: wagtail<=7.1,>=5.2
+Requires-Dist: Django<6.1,>=4.2
+Requires-Dist: wagtail<8.0,>=5.2
+Requires-Dist: requests
 
-## Requirements
+# **All in One Accessibility® - Wagtail Accessibility Plugin**
+
+## **Free WCAG, ADA, EAA accessibility plugin for Wagtail websites!**
+
+This [Free Wagtail accessibility plugin](https://www.skynettechnologies.com/wagtail-ada-widget) - adds an accessible experience for users with visual, auditory, motor, or cognitive disabilities. It supports assistive technologies, offers customizable updates, and enhances overall usability according to WCAG 2.1, 2.2, ADA, EAA, Section 508, France RGAA, California Unruh, European EAA EN 301 549, UK Equality Act, Spain UNE 139803:2012, Australian DDA, Israeli Standard 5568, Ontario AODA, Canada ACA, German BITV, Brazilian Inclusion Law (LBI 13.146/2015), JIS X 8341 (Japan), Italian Stanca Act, Indian RPwD Act, Switzerland DDA and other [accessibility standards](https://www.skynettechnologies.com/accessibility-standards).
+
+This [free accessibility widget](https://www.skynettechnologies.com/free-website-accessibility-widget) quickly adds essential accessibility features through a lightweight, easy to install solution that supports inclusive browsing and compliance efforts.
+
+**Core Features - What you get with free accessibility Wagtail widget?**
+
+- Auto-detect language
+- Supports 190+ multi-languages.
+- Skip to Navigation / Content / Footer
+- Content Adjustment Options
+- Visual & Color Adjustments
+- Dynamic free Wagtail accessibility module customization including colors, size, icon, and position
+- Reading mask
+- Accessibility statement
+
+Explore the [free accessibility widget features guide](https://www.skynettechnologies.com/sites/default/files/Free-Accessibility-Widget-Features-Guide.pdf).
+
+**This free accessibility Wagtail plugin is a great fit for:**
+
+- Businesses, developers, agencies, content teams, ecommerce brands, educational institutions, and public-facing organizations using Wagtail who want to improve WCAG accessibility, usability, and user experience quickly without complex development.
+
+**Why select free Wagtail WCAG accessibility module - All in One Accessibility?**
+
+- Supports alignment with global accessibility standards
+- Improves usability for users with visual, cognitive, and motor impairments.
+- Integrates smoothly with most Wagtail site setups.
+- Supports 190 plus multi languages and multisite for global accessibility reach.
+- Available at no cost for core accessibility features.
+
+### **Version Compatibility**
 
 This package supports the following combinations of Python, Django, and Wagtail versions:
 
-### Python 3.13:
-- **Django 5.2**: Compatible with **Wagtail 7.1, 7.0**
-- **Django 5.1**: Compatible with **Wagtail 6.4, 6.3, 6.2, 6.1, 6.0**
-- **Django 4.2**: Compatible with **Wagtail 5.2**
+| Requirement    | Supported Versions                                          |
+|----------------|--------------------------------------------------------------|
+| Python         | 3.10, 3.11, 3.12, 3.13, 3.14                                  |
+| Django         | 4.2, 5.0, 5.1, 5.2, 6.0                                       |
+| Wagtail        | 5.2, 6.0, 6.1, 6.2, 6.3, 6.4, 7.0, 7.1, 7.2, 7.3, 7.4          |
+| Plugin Version | 2.2.3                                                         |
 
-### Python 3.11:
-- **Django 5.2**: Compatible with **Wagtail 7.1, 7.0**
-- **Django 5.1**: Compatible with **Wagtail 6.4, 6.3, 6.2, 6.1, 6.0**
-- **Django 4.2.**: Compatible with **Wagtail 5.2**
+`install_requires` is intentionally kept wide (`Django>=4.2,<6.1`,
+`wagtail>=5.2,<8.0`) so this plugin doesn't block `pip`'s resolver from
+picking whatever current Django/Wagtail combination the rest of your
+project needs. Not every Django/Wagtail pair in that range is compatible
+with *each other* though - Wagtail dropped Django 4.2 support as of
+Wagtail 7.4, and Django 6.0 requires Python 3.12+. Match the pair to
+[Wagtail's own compatible Django/Python table](https://docs.wagtail.org/en/stable/releases/upgrading.html#compatible-django-python-versions),
+reproduced here for the versions this plugin has been tested against:
 
-# All in One Accessibility®
+#### Python 3.13 / 3.14
+- **Django 6.0**: Compatible with **Wagtail 7.4, 7.3, 7.2**
+- **Django 5.2**: Compatible with **Wagtail 7.4, 7.3, 7.2, 7.1, 7.0**
+- **Django 5.1**: Compatible with **Wagtail 7.2, 6.4, 6.3, 6.2, 6.1, 6.0**
 
-## Enhance Your Website's Accessibility with All in One Accessibility®
+#### Python 3.10 / 3.11
+- **Django 5.2**: Compatible with **Wagtail 7.4, 7.3, 7.2, 7.1, 7.0**
+- **Django 5.1**: Compatible with **Wagtail 7.2, 6.4, 6.3, 6.2, 6.1, 6.0**
+- **Django 4.2**: Compatible with **Wagtail 7.3, 7.2, 7.1, 7.0, 6.4, 6.3, 6.2, 6.1, 6.0, 5.2**
 
-**Did you know?** Your website's accessibility can make or break your audience's experience. With the **All in One Accessibility AI Free Accessibility Widget**, you can instantly boost your site's inclusivity and support over **140+ languages**! Experience the power of **23 essential features** in our free version and take the first step towards creating a better web for everyone.
-
-### Why All in One Accessibility®?
-
-This lightweight and flexible widget is designed to improve your website’s compliance with **international accessibility standards**, including:
-
-### **International Standards**
-
-- **WCAG 2.0, 2.1, & 2.2** (Web Content Accessibility Guidelines)  
-- **ATAG 2.0** (Authoring Tool Accessibility Guidelines)  
-- **PDF/UA – ISO 14289** (Accessible PDF Format)
-
-### **United States**
-- **ADA (Americans with Disabilities Act)**  
-- **ADA Title III Website Accessibility**  
-- **Section 508 (U.S. Government Standard)**  
-- **California Unruh Civil Rights Act**  
-- **Texas Website Accessibility Compliance**  
-- **Florida Website Compliance**  
-- **Colorado Accessibility Law**  
-- **Kentucky Web Accessibility**  
-- **New York State Web Accessibility Policy**  
-- **Arizona ADA Compliance**  
-- **Connecticut ADA Web Accessibility**  
-- **Indiana Digital Accessibility**  
-- **Nevada ADA Compliance Requirements**  
-- **Georgia Website ADA Compliance**  
-- **Ohio ADA Compliance**  
-- **Michigan ADA Compliance**  
-- **Virginia Web Accessibility Legislation**  
-- **Kansas ADA Compliance**  
-- **Washington State ADA Compliance**
-
-### **Canada**
-- **AODA (Accessibility for Ontarians with Disabilities Act)**  
-- **ACA (Accessible Canada Act)**
-
-### **United Kingdom**
-- **UK Equality Act (EA)**
-
-### **European Union**
-- **EAA / EN 301 549 Accessibility**  
-- **EN 301 549 v4.1.1**
-
-### **France**
-- **RGAA (Référentiel Général d’Amélioration de l’Accessibilité)**
-
-### **Germany**
-- **BITV (Barrierefreie-Informationstechnik-Verordnung)**
-
-### **Italy**
-- **Italian Stanca Act**
-
-### **Spain**
-- **UNE 139803:2012**
-
-### **Austria**
-- **WZG (Austrian Web Accessibility Act)**
-
-### **Switzerland**
-- **Swiss Disability Discrimination Act (DDA)**
-
-### **Sweden**
-- **Swedish Discrimination Act (2008:567)**
-
-### **Israel**
-- **IS 5568 (Israeli Standard)**
-
-### **Australia**
-- **Australian DDA (Disability Discrimination Act)**
-
-### **India**
-- **RPD Act (Rights of Persons with Disabilities Act)**  
-- **GIGW 3.0 (Guidelines for Indian Government Websites)**
-
-### **Brazil**
-- **LBI 13.146/2015 (Brazilian Inclusion Law)**
-
-### **Mexico**
-- **ADA-Inspired Web Accessibility Compliance**
-
-### **Japan**
-- **JIS X 8341**
-
-### **South Korea**
-- **KWCAG 2.1 (Korean Web Content Accessibility Guidelines)**
-
-### **Singapore**
-- **DSS and SGDS (Design System and Digital Standards)**
-
-### **Malaysia**
-- **PWD Act 2008 (Persons with Disabilities Act)**
-
-### **Thailand**
-- **PDA 2013 (Persons with Disabilities Empowerment Act)**
-
-### **United Arab Emirates**
-- **UAE Disability Act (Federal Law No. 29 of 2006)**
-
-For more details on supported accessibility laws and standards, visit  
-**[All in One Accessibility Supported Standards](https://www.skynettechnologies.com/accessibility-standards)**
-
-By implementing the widget, you’re not only enhancing user experience but also minimizing the risk of costly accessibility lawsuits. For more details, visit **[All in One Accessibility®.](https://www.skynettechnologies.com/all-in-one-accessibility)**
-
-### Built for Excellence
-
-- Adheres to **ISO 9001:2015** & **ISO 27001:2013** standards.
-- Fully compliant with **GDPR** and **COPPA** regulations.
-- Proud member of **W3C** and the **International Association of Accessibility Professionals (IAAP)**.
-
-### Upgrade to Unlock Premium Features
-
-**Why stop at 23 features?** Unlock over **70+ advanced features** with our **paid subscription** and take your website’s accessibility to the next level. Compare the benefits of Free vs. Paid versions **[here](https://www.skynettechnologies.com/all-in-one-accessibility/features)**.
-
-Checkout the steps for upgrading **[Free to Paid Widget Upgrade Steps](https://www.skynettechnologies.com/blog/upgrade-all-in-one-accessibility-free-widget-to-paid-version#free-paid-version).**
-
-### Start Your Accessibility Journey Today
-
-Try it risk-free with our **10-day free trial**! Don’t wait, experience the benefits today. **[Click to get started](https://ada.skynettechnologies.us/trial-subscription?utm_source=all-in-one-accessibility&utm_medium=landing-page&utm_campaign=trial-subscription)** and join a growing community of forward-thinking businesses making the web accessible to everyone.
-
-**Your website’s accessibility journey begins here. Make an impact.**
-
-For more details, visit **[All in One Accessibility®](https://www.skynettechnologies.com/all-in-one-accessibility)** and transform your digital presence.
-
-### Supported Languages (140+ Languages)
-
-English (USA), English (UK), English (Australian), English (Canadian), English (South Africa), Español, Español (Mexicano), Deutsch, عربى, Português, Português (Brazil), 日本語, Français, Italiano, Polski, Pусский, 中文, 中文 (Traditional), עִברִית, Magyar, Slovenčina, Suomenkieli, Türkçe, Ελληνικά, Latinus, Български, Català, Čeština, Dansk, Nederlands, हिंदी, Bahasa Indonesia, 한국인, Lietuvių, Bahasa Melayu, Norsk, Română, Slovenščina, Svenska, แบบไทย, Українська, Việt Nam, বাঙালি, සිංහල, አማርኛ, Hmoob, မြန်မာ, Eesti keel, latviešu, Cрпски, Hrvatski, ქართული, ʻŌlelo Hawaiʻi, Cymraeg, Cebuano, Samoa, Kreyòl ayisyen, Føroyskt, Crnogorski, Azerbaijani, Euskara, Tagalog, Galego, Norsk Bokmål, فارسی, ਪੰਜਾਬੀ, shqiptare, Hայերեն, অসমীয়া, Aymara, Bamanankan, беларускі, bosanski, Corsu, ދިވެހި, Esperanto, Eʋegbe, Frisian, guarani, ગુજરાતી, Hausa, íslenskur, Igbo, Gaeilge, basa jawa, ಕನ್ನಡ, қазақ, ខ្មែរ, Kinyarwanda, Kurdî, Кыргызча, ພາສາລາວ, Lingala, Luganda, lëtzebuergesch, македонски, Malagasy, മലയാളം, Malti, Maori, मराठी, Монгол, नेपाली, Sea, ଓଡିଆ, Afaan Oromoo, پښتو, Runasimi, संस्कृत, Gàidhlig na h-Alba, Sesotho, Shona, سنڌي, Soomaali, basa Sunda, kiswahili, тоҷикӣ, தமிழ், Татар, తెలుగు, ትግሪኛ, Tsonga, Türkmenler, Ride, اردو, ئۇيغۇر, o'zbek, isiXhosa, יידיש, Yoruba, Zulu, भोजपुरी, डोगरी, कोंकणी, Kurdî, Krio, मैथिली, Meiteilon, Mizo tawng, Sepedi, Ilocano, دری.
+> **Notes:**
+> - Django 6.0 requires Python 3.12 or higher, and (as of Wagtail 7.4)
+>   also requires dropping Django 4.2 - if you're on Wagtail 7.4+, use
+>   Django 5.2 or 6.0.
+> - Wagtail 8.0 is still in development at the time of writing and isn't
+>   pinned to yet; once released, bump the upper bound in your own
+>   project once you've verified compatibility.
 
 
-## Installation
-[`all-in-one-accessibility-introduction`](https://www.youtube.com/watch?v=PPQMWSzroAA) - introduction of All in One Accessibility widget .
+### **SECURITY & PRIVACY NOTES**
+
+- This Free Accessibility Wagtail module follows several data and application security practices, including ISO 9001:2015 & ISO 27001:2013, GDPR, CCPA, COPPA, HIPAA, and SOC 2 Type II.
+- Skynet Technologies USA LLC is an organizational member of IAAP and of W3C.
+- No personal data is intentionally stored by the module itself. Site owners are responsible for reviewing their own compliance requirements.
+
+### **LIMITATIONS**
+
+- Some advanced features require a commercial subscription.
+
+For more details, visit [**Wagtail accessibility plugin**](https://www.skynettechnologies.com/wagtail-ada-widget)**.**
 
 ---
 
-## Installation
--   Run `pip install wagtail-all-in-one-accessibility`
--   Run `pip install wagtail-modeladmin`
--   Add `wagtail_modeladmin` in `settings.INSTALLED_APPS`
--   Add `wagtail.contrib.settings` in `settings.INSTALLED_APPS`
--   Add `wagtail_all_in_one_accessibility` in `settings.INSTALLED_APPS`
--   Add `wagtail_all_in_one_accessibility.context_processors.admin_AIOA` in `settings.TEMPLATES context_processors`
--   Add `<script id="aioa-adawidget" src="{{ AIOA_URL }}"></script>`put this line in your base.html footer
--   Run `python manage.py migrate`
--   Run `python manage.py runserver` for Restart your application server
+## **FAQS**
+
+**Is this AI accessibility extension compatible with Wagtail multisite?**
+
+Yes.
+
+**Does this free Wagtail accessibility plugin support multilingual Wagtail sites?**
+
+Yes. It supports 190+ languages.
+
+**How can I upgrade from free to Paid Wagtail accessibility widget for upgrading accessibility features?**
+
+Upgrade to Paid subscription with **90 plus advanced features** and take website's accessibility to the next level. Checkout the steps for upgrading [free to paid Wagtail accessibility widget](https://www.skynettechnologies.com/blog/upgrade-from-all-in-one-accessibility-free-widget-to-premium-version)**.**
+
+**What additional features are available in the paid version of Wagtail WCAG ADA EAA plugin?**
+
+The paid version of Wagtail accessibility widget includes following features like screen reader, voice navigation, talk & type, virtual keyboard, accessibility profiles tailored for different users with disabilities group, Libras (Brazilian sign language), dictionary search, multi-language support (190+ languages), and many more. Pricing starts from \$25 / month. Explore more information about [accessibility widget](https://www.skynettechnologies.com/all-in-one-accessibility) and buy now.
+
+### **Supported Languages (190+ Languages)**
+
+English (USA), English (UK), English (Australian), English (Canadian), English (South Africa), Español, Español (Mexicano), Deutsch, عربى, Português, Português (Brazil), 日本語, Français, Italiano, Polski, Pусский, 中文, 中文 (Traditional), עִברִית, Magyar, Slovenčina, Suomenkieli, Türkçe, Ελληνικά, Latinus, Български, Català, Čeština, Dansk, Nederlands, हिंदी, Bahasa Indonesia, 한국인, Lietuvių, Bahasa Melayu, Norsk, Română, Slovenščina, Svenska, แบบไทย, Українська, Việt Nam, বাঙালি, සිංහල, አማርኛ, Hmoob, မြန်မာ, Eesti keel, latviešu, Cрпски, Hrvatski, ქართული, ʻŌlelo Hawaiʻi, Cymraeg, Cebuano, Samoa, Kreyòl ayisyen, Føroyskt, Crnogorski, Azerbaijani, Euskara, Tagalog, Galego, Norsk Bokmål, فارسی, ਪੰਜਾਬੀ, shqiptare, Hայերեն, অসমীয়া, Aymara, Bamanankan, беларускі, bosanski, Corsu, ދިވެހި, Esperanto, Eʋegbe, Frisian, guarani, ગુજરાતી, Hausa, íslenskur, Igbo, Gaeilge, basa jawa, ಕನ್ನಡ, қазақ, ខ្មែរ, Kinyarwanda, Kurdî, Кыргызча, ພາສາລາວ, Lingala, Luganda, lëtzebuergesch, македонски, Malagasy, മലയാളം, Malti, Maori, मराठी, Монгол, नेपाली, Sea, ଓଡିଆ, Afaan Oromoo, پښتو, Runasimi, संस्कृत, Gàidhlig na h-Alba, Sesotho, Shona, سنڌي, Soomaali, basa Sunda, kiswahili, тоҷикӣ, தமிழ், Татар, తెలుగు, ትግሪኛ, Tsonga, Türkmenler, Ride, اردو, ئۇيغۇر, o'zbek, isiXhosa, יידיש, Yoruba, Zulu, भोजपुरी, डोगरी, कोंकणी, Kurdî, Krio, मैथिली, Meiteilon, Mizo tawng, Sepedi, Ilocano, دری
 
 ---
 
-## Usage
+## **Installation Steps**
+
+### Step 1 — Install via pip
+
+```bash
+pip install wagtail-all-in-one-accessibility
+```
 
 ---
 
-### Settings.INSTALLED_APPS
-Just add `wagtail_all_in_one_accessibility`, `wagtail_modeladmin` and `wagtail.contrib.settings` in to your setting.INSTALLED_APPS:
+### Step 2 — Add to `INSTALLED_APPS` in `settings.py`
 
 ```python
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'wagtail_modeladmin',
-    'wagtail.contrib.settings',
-    'wagtail_all_in_one_accessibility',
+    # ... existing apps ...
+    "wagtail.contrib.settings",
+    "wagtail_all_in_one_accessibility",
 ]
 ```
 
-### Settings.TEMPLATES
-Just add `wagtail_all_in_one_accessibility.context_processors.admin_AIOA` in your setting.TEMPLATES:
+---
+
+### Step 3 — Add the context processor in `settings.py`
+
+Find the `TEMPLATES` setting and add to `context_processors`:
+
 ```python
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'wagtail_all_in_one_accessibility.context_processors.admin_AIOA',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [...],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                # ... existing processors ...
+                "wagtail_all_in_one_accessibility.context_processors.admin_AIOA",
             ],
         },
     },
 ]
 ```
 
-### Base.html
-Just add this tag in your base.html footer(your main template of django website) `<script id="aioa-adawidget" src="{{ AIOA_URL }}"></script>`:
-```python
-  <footer>
+---
+
+### Step 4 — Add the widget script tag to your Wagtail base template
+
+Open your site's base template. This is typically:
+
+- `templates/base.html` (default Wagtail project template)
+- Your custom theme's `base.html` override
+
+Add this **one line** just before `</body>`:
+
+```html
     <script id="aioa-adawidget" src="{{ AIOA_URL }}"></script>
-  </footer>
+  </body>
+</html>
 ```
+---
 
-### Migrate
-Migrate your app
-```python
+### Step 5 — Run migrations and collect static files
+
+```bash
 python manage.py migrate
-
+python manage.py collectstatic --noinput
 ```
 
-### Restart 
-Restart your app server with this command and check the admin panel the model is ready to use
-```python
+---
+
+### Step 6 — Restart the server
+
+```bash
 python manage.py runserver
 ```
+---
 
-## CORS Policy Configuration
+### Step 7 — Configure in Wagtail Admin
+
+Visit your Wagtail admin and click **All in One Accessibility** in the sidebar:
+
+```
+http://your-site.com/admin/
+```
+
+Configure widget color, position, icon type, and size, then click **Save**.
+Settings are automatically synced to Skynet's platform — the widget picks them up instantly.
+
+---
+
+### Step 8 — Verify on the frontend
+
+Open your site's homepage. The floating accessibility widget should appear in the corner
+you configured (default: bottom-right).
+
+---
+
+### **Settings Reference**
+
+| Setting | Default | Description |
+| --- | --- | --- |
+| Hex Color Code | `420083` | Widget button color (no `#`) |
+| Widget Position | `bottom_right` | Where the widget sits on screen |
+| Widget Size | `oversize` | Regular or oversize button |
+| Icon Type | Type 1 | One of 29 icon styles |
+| Desktop Icon Size | Default | Big / Medium / Default / Small / Extra Small |
+| Enable Custom Icon Size | Off | Override icon size with exact px value |
+| Enable Precise Positioning | Off | Set exact px offset from edge |
+
+---
+
+### **CORS Policy Configuration**
 
 To avoid CORS policy issues, ensure the following URLs are allowed in your website. These URLs should be added to your CORS configuration or trusted domains list.
 
-| **Domain**                         | **Description**                              | **Usage**                        |
-|------------------------------------|----------------------------------------------|----------------------------------|
-| `https://*.skynettechnologies.com` | Skynet Technologies (Global Domain)          | API access and resources         |
-| `https://*.skynettechnologies.us`  | Skynet Technologies (US Domain)              | API access and resources         |
-| `https://*.googleapis.com`         | Google APIs                                  | Services like Fonts, Translation |
-| `https://*.gstatic.com`            | Fonts APIs                                   | Custom Fonts                     |
-| `https://vlibras.gov.br`           | VLibras - Brazilian Sign Language Service    | Sign Language                    |
+| **Domain** | **Description** | **Usage** |
+| --- | --- | --- |
+| https://\*.skynettechnologies.com | Skynet Technologies (Global Domain) | API access and resources |
+| https://\*.skynettechnologies.us | Skynet Technologies (US Domain) | API access and resources |
+| https://\*.googleapis.com | Google APIs | Services like Fonts, Translation |
+| https://\*.gstatic.com | Fonts APIs | Custom Fonts |
+| https://vlibras.gov.br | VLibras - Brazilian Sign Language Service | Sign Language |
 
+### **Instructions**
 
-## Instructions
+- Update your server's CORS configuration to include these URLs.
+- Ensure wildcard subdomains (\*) are supported where necessary.
+- Verify the application functionality by testing requests to these domains.
+- If issues persist, consult the documentation for CORS configuration guidance.
 
-1. Update your server's CORS configuration to include these URLs.
-2. Ensure wildcard subdomains (`*`) are supported where necessary.
-3. Verify the application functionality by testing requests to these domains.
-4. If issues persist, consult the documentation for CORS configuration guidance.
+---
 
-## Configuration
+### **Documentation**
 
-To configure the widget, access the Admin Panel and head to the **All in One Accessibility** menu in the dashboard. From there, you can register **[here](https://ada.skynettechnologies.us/trial-subscription)** with 10 Days free trial.
+- [**Wagtail Accessibility Plugin**](https://www.skynettechnologies.com/wagtail-ada-widget)
+- [**Wagtail WCAG compliance accessibility - Features Guide**](https://www.skynettechnologies.com/sites/default/files/accessibility-widget-features-list.pdf)
 
-## Documentation
-- **[Purchase Wagtail All in One Accessibility](https://www.skynettechnologies.com/wagtail-website-accessibility)**
-- **[How to install All in One Accessibility Extension on Wagtail blog](https://www.skynettechnologies.com/blog/wagtail-web-accessibility-widget-installation)**
-- **[All in One Accessibility - Features Guide](https://www.skynettechnologies.com/sites/default/files/accessibility-widget-features-list.pdf)**
+**Submit a Support Request**
+Please visit our [**support page**](https://www.skynettechnologies.com/report-accessibility-problem) and fill out the form. Our team will get back to you as soon as possible.
 
-## Submit a Support Request
+**Send Us an Email**
+Alternatively, you can send an email to our support team: [**hello@skynettechnologies.com**](mailto:hello@skynettechnologies.com)
 
-Please visit our **[support page](https://www.skynettechnologies.com/report-accessibility-problem)** and fill out the form. Our team will get back to you as soon as possible.
+---
 
-## Send Us an Email
+**Accessibility Paid Add-on Services**
 
-Alternatively, you can send an email to our support team:
-**[hello@skynettechnologies.com](mailto:hello@skynettechnologies.com)**
+**[Wagtail manual accessibility audit](https://www.skynettechnologies.com/website-accessibility-audit)**
 
-## Accessibility Paid Add-on Services
+- Enhance inclusivity and user experience by evaluating Wagtail website's accessibility by [web accessibility consultant](https://www.skynettechnologies.com/web-accessibility-consultant).
+- WCAG 2.0 / WCAG 2.1 / WCAG 2.2 Level AA conformance testing
+- Automated, semi-automated testing
+- Manual testing
+- Simple before-after UI/UX recommendations on how to fix the issues
+- Comprehensive audit report
 
-### **[Manual Accessibility Audit Report](https://www.skynettechnologies.com/all-in-one-accessibility/addons#manual-accessibility-audit-report)**
+**[Wagtail site manual accessibility remediation](https://www.skynettechnologies.com/full-website-accessibility-remediation)**
 
-Enhance inclusivity and user experience by evaluating your website’s accessibility by accessibility experts.
-WCAG 2.0 / WCAG 2.1 / WCAG 2.2 Level AA conformance testing.
-Automated, semi-automated testing.
-Manual testing.
-Simple before-after UI/UX recommendations on how to fix the issues.
-Comprehensive audit report.
+Enhance Wagtail website accessibility and inclusivity with our manual accessibility remediation add-on. This service includes fixing accessibility issues and thorough remediation of website manually. Our experts ensure accessibility with WCAG standards, improve user experience for those with disabilities, and provide a detailed report on the improvements made.
 
-### **[Manual Accessibility Remediation](https://www.skynettechnologies.com/all-in-one-accessibility/addons#manual-accessibility-remediation)**
-Enhance website accessibility and inclusivity with our Manual Accessibility Remediation add-on. This service includes fixing accessibility issues and thorough remediation of your website manually. Our experts ensure accessibility with WCAG standards, improve user experience for those with disabilities, and provide a detailed report on the improvements made.
+[**PDF/Document Accessibility Remediation**](https://www.skynettechnologies.com/pdf-accessibility-remediation)
 
-### **[PDF/Document Accessibility Remediation](https://www.skynettechnologies.com/all-in-one-accessibility/addons#pdf-document-remediation)**
 The PDF / Document Remediation provides a list of inaccessible PDFs and remediated PDFs from where you can request PDF remediation service.
- 
-### **[VPAT Report/Accessibility Conformance Report(ACR)](https://www.skynettechnologies.com/all-in-one-accessibility/addons#vpat-acr-report)**
+
+**[VPAT Report/Accessibility Conformance Report (ACR)](https://www.skynettechnologies.com/vpat-accessibility-conformance-report)**
+
 The Voluntary Product Accessibility Template (VPAT), also known as an ACR (Accessibility Conformance Report) starts with an audit and provides current details for an accessible website, application, or any other digital assets.
 
-## Accessibility Widget Paid Add-ons
+---
 
-### **[White Label](https://www.skynettechnologies.com/all-in-one-accessibility/addons#accessibility-widget-add-ons)**
-Remove the Skynet technologies logo as well as all of the footer links, popups, report a problem link and more for full white label control.
+**Accessibility Wagtail Widget Paid Add-ons**
 
-### **[Live Site Translations](https://www.skynettechnologies.com/all-in-one-accessibility/addons#accessibility-widget-add-ons)**
-Translate your site into over 140 languages instantly to enhance accessibility for non-native speakers, individuals with language acquisition difficulties, and those with learning disabilities.
+[**White Label Accessibility**](https://www.skynettechnologies.com/all-in-one-accessibility/addons#accessibility-widget-add-ons)
 
-###  **[Modify Accessibility Menu](https://www.skynettechnologies.com/all-in-one-accessibility/addons#accessibility-widget-add-ons)**
-Build and fine-tune your widget with the Modify Menu option. Reorder, remove and restructure the widget buttons to fit your users’ specific accessibility needs.
+Remove the Skynet Technologies logo as well as all of the footer links, popups, report a problem link and more for full white label control.
 
-## Accessibility Partnership Opportunities
+[**Instant live site translations**](https://www.skynettechnologies.com/all-in-one-accessibility/addons#accessibility-widget-add-ons) **for Wagtail sites**
 
-### **[Agencies Partnership](https://www.skynettechnologies.com/agency-partners)**
+Translate Wagtail site into over 190 languages instantly to enhance accessibility for non-native speakers, individuals with language acquisition difficulties, and those with learning disabilities.
 
-Partner with us as an agency to provide comprehensive accessibility solutions to your clients. Get access to exclusive resources, training, and support to help you implement and manage accessibility features effectively.
+[**Modify Accessibility Menu**](https://www.skynettechnologies.com/all-in-one-accessibility/addons#accessibility-widget-add-ons) **for Wagtail websites**
 
-### **[Affiliated Partnership](https://www.skynettechnologies.com/affiliate-partner)**
+Build and fine-tune widget with the Modify Menu option. Reorder, remove and restructure the widget buttons to fit users' specific accessibility needs.
 
-Join our affiliate program and earn commissions by promoting All in One Accessibility®. Share our Widget with your network and help businesses improve their website accessibility while generating revenue.
+---
 
-For more details, Please visit **[Partnership Opportunities Page](https://www.skynettechnologies.com/partner-program)**
+**Wagtail Accessibility Partnership Opportunities**
+
+[**Wagtail accessibility agencies partnership**](https://www.skynettechnologies.com/agency-partners)
+
+Partner with us as an agency to provide comprehensive Wagtail ADA, EAA, WCAG accessibility solutions to clients. Get access to exclusive resources, training, and support to implement and manage accessibility features effectively.
+
+[**Wagtail accessibility affiliate partnership**](https://www.skynettechnologies.com/affiliate-partner)
+
+Sign up for our affiliate program and earn commissions by promoting accessibility plugin. Share our widget with your network and help businesses improve their website accessibility while generating revenue.
+
+For more details, explore [**Wagtail accessibility partnership opportunities**](https://www.skynettechnologies.com/partner-program)
+
+---
 
 ## Screenshots
 
@@ -334,18 +342,19 @@ For more details, Please visit **[Partnership Opportunities Page](https://www.sk
 
 ![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-4-free.jpg?v=4)
 
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-5-free.jpg?v=4)
+
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-6-free.jpg?v=4)
+
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-7-free.jpg?v=4)
+
 ## Video
 
-[![All in One Accessibility](https://img.youtube.com/vi/X70XtvGyvSs/0.jpg)](https://youtu.be/X70XtvGyvSs)
+[![All in One Accessibility](https://img.youtube.com/vi/I-DjgZyleeI/0.jpg)](https://www.youtube.com/watch?v=I-DjgZyleeI)
 
-## Credits
+**Credits**
+This addon is developed and maintained by [website accessibility remediation company](https://www.skynettechnologies.com/) - Skynet Technologies USA LLC
 
-This addon is developed and maintained by **[Skynet Technologies USA LLC](https://www.skynettechnologies.com)**
+### **Current Maintainers**
 
-## Current Maintainers
-
-- **[Skynet Technologies USA LLC](https://github.com/skynettechnologies)**
-
-## License
-
-[MIT](LICENSE) © Skynet Technologies USA LLC
+- [**Skynet Technologies USA LLC**](https://github.com/skynettechnologies)

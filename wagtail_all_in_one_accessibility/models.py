@@ -1,4 +1,6 @@
 # models.py
+import logging
+
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from wagtail.contrib.settings.models import BaseGenericSetting, register_setting
@@ -8,6 +10,8 @@ from .widgets import DependentImageRadioSelect
 from wagtail.admin.panels import FieldPanel, FieldRowPanel, MultiFieldPanel
 import requests
 from urllib.parse import urlparse
+
+logger = logging.getLogger(__name__)
 
 AIOA_SELECT_CHOICES = [
     ('top_left', 'Top Left'),
@@ -47,7 +51,7 @@ ICON_CHOICES = [
     for i in range(1, 30)
 ]
 
-@register_setting(icon='cog')
+@register_setting(icon='accessibility')
 class AllInOneAccessibility(BaseGenericSetting):
     
     domain_url = models.URLField(
@@ -163,18 +167,58 @@ class AllInOneAccessibility(BaseGenericSetting):
 
     ]
 
-    # Save hook to trigger external API on save
+    # Save hook to trigger external API sync (mirrors the Misago admincp
+    # "Save" button, which pushes the updated widget settings to the Skynet
+    # API every time the settings form is submitted).
+    #
+    # Only sync on an *update* to an already-existing row, not on the very
+    # first automatic row creation. `AllInOneAccessibility.load()` (used by
+    # the context processor, and by Wagtail's settings edit view itself)
+    # lazily creates this singleton row the first time anything touches it
+    # -- e.g. the first page view of the site -- with nothing but defaults.
+    # Without this guard, that first, unattended creation would immediately
+    # fire an API call before an admin ever opened the settings page or
+    # clicked Save.
     def save(self, *args, **kwargs):
+        is_update = self.pk is not None
         super().save(*args, **kwargs)
-
-        if self.domain_url:
+        if is_update:
             self.send_to_external_api(self.domain_url)
 
-    # Placeholder function for sending data to external API
-    def send_to_external_api(self, domain_url=None):
+    def _resolve_domain_url(self, domain_url=None):
+        """
+        Determine the domain to report to the API.
+
+        1. Use the value passed in (usually `self.domain_url`, auto-filled by
+           fill_domain_url.js when the settings form is submitted).
+        2. Otherwise fall back to the first usable host in ALLOWED_HOSTS, the
+           same source the startup domain-registration step uses, so the
+           widget-settings sync always has somewhere to report to even if the
+           hidden field wasn't populated (e.g. non-browser POSTs, management
+           commands, tests).
+        """
+        if not domain_url:
+            domain_url = self.domain_url
 
         if not domain_url:
-            domain_url = self.domain_url  # fallback from the model
+            try:
+                from .registration import _get_all_domains_from_settings
+                domains = _get_all_domains_from_settings()
+                if domains:
+                    domain_url = domains[0][0]
+            except Exception:
+                domain_url = None
+
+        return domain_url
+
+    # Push the current widget settings to the Skynet API. Non-fatal: a
+    # failed/unreachable API must never block saving settings in the admin.
+    def send_to_external_api(self, domain_url=None):
+        domain_url = self._resolve_domain_url(domain_url)
+        if not domain_url:
+            logger.warning("[AIOA] No domain available; skipping widget-settings API sync.")
+            return
+
         parsed_url = urlparse(domain_url)
         domain_url = f"{parsed_url.scheme}://{parsed_url.hostname}"
 
@@ -231,12 +275,20 @@ class AllInOneAccessibility(BaseGenericSetting):
             "widget_icon_type": self.aioa_icon_type,
         })
         
-        # Send API request to external service (with fallback error handling)
+        # Send API request to external service. This must never raise: an
+        # unreachable/erroring API should not prevent the admin from saving
+        # their widget settings (this previously crashed the Save button).
         try:
-            response = requests.post('https://ada.skynettechnologies.us/api/widget-setting-update-platform', json=data)
+            from .registration import _REQUEST_HEADERS
+            response = requests.post(
+                'https://ada.skynettechnologies.us/api/widget-setting-update-platform',
+                json=data,
+                headers=_REQUEST_HEADERS,
+                timeout=10,
+            )
             response.raise_for_status()
         except requests.RequestException as e:
-            raise RuntimeError(f"Settings sync failed: {e}") from e
+            logger.warning("[AIOA] Widget-settings API sync failed: %s", e)
 
         
     def __str__(self):

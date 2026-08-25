@@ -1,0 +1,5 @@
+/* Hide elements with the 'hidden' classname (e.g. the auto-filled
+   domain_url field, which the visitor never needs to see or edit). */
+.hidden {
+    display: none !important;
+}

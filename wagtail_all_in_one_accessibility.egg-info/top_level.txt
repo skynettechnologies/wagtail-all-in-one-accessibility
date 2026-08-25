@@ -1,3 +1,1 @@
-search
 wagtail_all_in_one_accessibility
-wagtail_package
